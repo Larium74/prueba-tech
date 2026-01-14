@@ -1,0 +1,382 @@
+.image-details-page {
+  min-height: 100vh;
+  background: #000;
+  padding: 2rem;
+  position: relative;
+}
+
+.image-details-page.fullscreen {
+  padding: 0;
+}
+
+.back-btn {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  color: #111;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: white;
+  transform: translateX(-4px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+.image-details-container {
+  max-width: 1400px;
+  margin: 5rem auto 0;
+}
+
+.fullscreen .image-details-container {
+  max-width: 100%;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.image-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px 12px 0 0;
+  margin-bottom: 0;
+}
+
+.fullscreen .image-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  border-radius: 0;
+  padding: 1rem 2rem;
+}
+
+.image-header h1 {
+  color: white;
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.fullscreen-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.fullscreen-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.image-viewer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  padding: 2rem;
+  min-height: 70vh;
+  position: relative;
+}
+
+.fullscreen .image-viewer {
+  flex: 1;
+  padding: 5rem 2rem 2rem;
+  min-height: 100vh;
+}
+
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 2.5rem;
+  color: #333;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  font-weight: 300;
+}
+
+.nav-arrow:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.4);
+}
+
+.nav-arrow:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.prev-arrow {
+  left: 2rem;
+}
+
+.next-arrow {
+  right: 2rem;
+}
+
+.fullscreen .nav-arrow {
+  width: 70px;
+  height: 70px;
+  font-size: 3rem;
+}
+
+.fullscreen .prev-arrow {
+  left: 3rem;
+}
+
+.fullscreen .next-arrow {
+  right: 3rem;
+}
+
+.full-image {
+  max-width: 100%;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.fullscreen .full-image {
+  max-height: 95vh;
+  border-radius: 0;
+}
+
+.full-image:hover {
+  transform: scale(1.02);
+}
+
+.carousel-thumbnails-viewer {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  overflow-x: auto;
+  justify-content: center;
+  align-items: center;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.fullscreen .carousel-thumbnails-viewer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.carousel-thumbnails-viewer::-webkit-scrollbar {
+  height: 8px;
+}
+
+.carousel-thumbnails-viewer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.carousel-thumbnails-viewer::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.carousel-thumbnails-viewer::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.thumbnail-item {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border: 3px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #222;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.fullscreen .thumbnail-item {
+  width: 120px;
+  height: 120px;
+}
+
+.thumbnail-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.thumbnail-item.active {
+  border-color: #667eea;
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.6);
+}
+
+.thumbnail-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbnail-overlay {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.image-info {
+  padding: 2rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0 0 12px 12px;
+  margin-top: 0;
+}
+
+.fullscreen .image-info {
+  display: none;
+}
+
+.fullscreen .image-viewer {
+  padding-bottom: 150px;
+}
+
+.error-state {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 3rem;
+  text-align: center;
+  margin: 5rem auto;
+  max-width: 500px;
+  color: white;
+}
+
+.error-state h2 {
+  color: #ff6b6b;
+  font-size: 2rem;
+  margin: 0 0 1rem 0;
+}
+
+.error-state p {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .image-details-page {
+    padding: 1rem;
+  }
+
+  .back-btn {
+    top: 1rem;
+    left: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .image-details-container {
+    margin-top: 4rem;
+  }
+
+  .image-header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .image-header h1 {
+    font-size: 1.3rem;
+  }
+
+  .fullscreen-btn {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .image-viewer {
+    padding: 1rem;
+    min-height: 50vh;
+  }
+
+  .full-image {
+    max-height: 60vh;
+  }
+
+  .nav-arrow {
+    width: 45px;
+    height: 45px;
+    font-size: 1.8rem;
+  }
+
+  .prev-arrow {
+    left: 1rem;
+  }
+
+  .next-arrow {
+    right: 1rem;
+  }
+
+  .carousel-thumbnails-viewer {
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+
+  .thumbnail-item {
+    width: 70px;
+    height: 70px;
+  }
+
+  .fullscreen .thumbnail-item {
+    width: 80px;
+    height: 80px;
+  }
+
+  .fullscreen .carousel-thumbnails-viewer {
+    padding: 0.75rem 1rem;
+  }
+
+  .fullscreen .image-viewer {
+    padding-bottom: 120px;
+  }
+}
