@@ -184,9 +184,9 @@ function AppContent() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <DynamicBanner apiUrl="http://localhost:3001/api/banner-content" />
-            <DynamicBanner apiUrl="http://localhost:3001/api/banner-content" />
-            <DynamicBanner apiUrl="http://localhost:3001/api/banner-content" />
+            <DynamicBanner />
+            <DynamicBanner />
+            <DynamicBanner />
           </div>
         </section>
       </main>

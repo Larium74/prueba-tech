@@ -14,7 +14,7 @@ export function BannerDetailsPage() {
     const fetchDetails = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:3001/api/banner-content/${id}`);
+        const response = await fetch(`https://api-deployed-t4o7.onrender.com/api/banner-content/${id}`);
 
         if (!response.ok) {
           throw new Error('Error al cargar los detalles');

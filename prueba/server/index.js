@@ -9,9 +9,16 @@ const __dirname = dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors());
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
 app.use(express.json());
 
+// Datos simulados de contenido dinámico generado con IA
+// En un caso real, estos vendrían de una API como OpenAI, Hugging Face, etc.
 const dynamicContent = [
   {
     id: '1',
@@ -285,8 +292,10 @@ const dynamicContent = [
   }
 ];
 
+// Endpoint para obtener contenido dinámico
 app.get('/api/banner-content', (req, res) => {
   try {
+    // Selecciona un contenido aleatorio
     const randomIndex = Math.floor(Math.random() * dynamicContent.length);
     const content = dynamicContent[randomIndex];
     
@@ -303,6 +312,7 @@ app.get('/api/banner-content', (req, res) => {
   }
 });
 
+// Endpoint para obtener todos los contenidos
 app.get('/api/banner-content/all', (req, res) => {
   try {
     res.json({
@@ -319,6 +329,7 @@ app.get('/api/banner-content/all', (req, res) => {
   }
 });
 
+// Endpoint para obtener contenido específico
 app.get('/api/banner-content/:id', (req, res) => {
   try {
     const { id } = req.params;
@@ -344,6 +355,7 @@ app.get('/api/banner-content/:id', (req, res) => {
   }
 });
 
+// Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'ok',
@@ -352,8 +364,8 @@ app.get('/api/health', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(` Banner API Server running on http://localhost:${PORT}`);
-  console.log(` API Documentation:`);
+  console.log(`🚀 Banner API Server running on http://localhost:${PORT}`);
+  console.log(`📝 API Documentation:`);
   console.log(`   GET /api/banner-content - Get random banner content`);
   console.log(`   GET /api/banner-content/all - Get all banner content`);
   console.log(`   GET /api/banner-content/:id - Get specific banner content`);

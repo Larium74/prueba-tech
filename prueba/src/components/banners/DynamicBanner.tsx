@@ -7,7 +7,7 @@ interface DynamicBannerProps {
   apiUrl?: string;
 }
 
-export function DynamicBanner({ apiUrl = 'http://localhost:3001/api/banner-content' }: DynamicBannerProps) {
+export function DynamicBanner({ apiUrl = 'https://api-deployed-t4o7.onrender.com/api/banner-content' }: DynamicBannerProps) {
   const [content, setContent] = useState<DynamicBannerContent | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
